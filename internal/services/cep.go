@@ -11,7 +11,7 @@ type ViaCEPResponse struct {
 }
 
 func GetCityByCEP(cep string) (string, error) {
-	url := fmt.Sprintf("https://viacep.com.br/ws/%s/json/", cep)
+	url := fmt.Sprintf("https://viacep.com.br/ws/%s/json", cep)
 	resp, err := http.Get(url)
 	if err != nil {
 		return "", err

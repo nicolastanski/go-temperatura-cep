@@ -53,6 +53,8 @@ go run cmd/server/main.go
 Realize a chamada com curl
 ```
 curl http://localhost:8080/weather/{CEP}
+
+curl http://localhost:8080/weather/01153000
 ```
 
 ## Realizar o Build da Imagem Docker
@@ -70,3 +72,5 @@ gcloud run deploy --image gcr.io/[PROJECT-ID]/weather-app --platform managed
 Informe o CEP que deseja consultar ao final da URL
 
 https://go-temperatura-cep-ihnmfm2jnq-uc.a.run.app/weather/{CEP}
+
+https://go-temperatura-cep-ihnmfm2jnq-uc.a.run.app/weather/01153000
