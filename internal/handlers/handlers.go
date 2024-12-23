@@ -19,19 +19,19 @@ func GetWeatherHandler(w http.ResponseWriter, r *http.Request) {
 	cep := vars["cep"]
 
 	if len(cep) != 8 {
-		http.Error(w, "CEP inválido", http.StatusUnprocessableEntity)
+		http.Error(w, `{"message": "CEP inválido"}`, http.StatusUnprocessableEntity)
 		return
 	}
 
 	city, err := services.GetCityByCEP(cep)
 	if err != nil {
-		http.Error(w, "CEP não encontrado", http.StatusNotFound)
+		http.Error(w, `{"message": "CEP não encontrado"}`, http.StatusNotFound)
 		return
 	}
 
 	tempC, err := services.GetTemperatureByCity(city)
 	if err != nil {
-		http.Error(w, "Temperatura não encontrada", http.StatusInternalServerError)
+		http.Error(w, `{"message": "Temperatura não encontrada"}`, http.StatusInternalServerError)
 		return
 	}
 

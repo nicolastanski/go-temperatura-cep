@@ -20,7 +20,7 @@ func GetCityByCEP(cep string) (string, error) {
 
 	var viaCEPResponse ViaCEPResponse
 	if err := json.NewDecoder(resp.Body).Decode(&viaCEPResponse); err != nil {
-		return "", err
+		return "", fmt.Errorf("500 Internal Server Error")
 	}
 
 	if viaCEPResponse.Localidade == "" {
